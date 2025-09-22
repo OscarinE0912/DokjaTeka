@@ -19,16 +19,9 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:text="Iniciar sesión"
+        android:id="@+id/btnRegistrar"
+        android:text="Registrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp" />
-
-    <Button
-        android:id="@+id/btnIrRegistro"
-        android:text="Registrarse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
 </LinearLayout>

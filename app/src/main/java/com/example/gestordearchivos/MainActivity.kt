@@ -1,40 +1,30 @@
 package com.example.gestordearchivos
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.github.barteksc.pdfviewer.PDFView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var pdfView: PDFView
-    private val PICK_PDF_CODE = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        pdfView = findViewById(R.id.pdfView)
-        val selectPdfButton = findViewById<Button>(R.id.selectPdfButton)
+        val btnBiblioteca = findViewById<Button>(R.id.btnBiblioteca)
+        val btnSubir = findViewById<Button>(R.id.btnSubir)
+        val btnEstadisticas = findViewById<Button>(R.id.btnEstadisticas)
 
-        selectPdfButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.type = "application/pdf"
-            startActivityForResult(intent, PICK_PDF_CODE)
+        btnBiblioteca.setOnClickListener {
+            startActivity(Intent(this, BibliotecaActivity::class.java))
         }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+        btnSubir.setOnClickListener {
+            startActivity(Intent(this, UploadActivity::class.java))
+        }
 
-        if (requestCode == PICK_PDF_CODE && resultCode == Activity.RESULT_OK) {
-            val uri: Uri? = data?.data
-            uri?.let {
-                val inputStream = contentResolver.openInputStream(it)
-                pdfView.fromStream(inputStream).load()
-            }
+        btnEstadisticas.setOnClickListener {
+            startActivity(Intent(this, EstadisticasActivity::class.java))
         }
     }
 }
