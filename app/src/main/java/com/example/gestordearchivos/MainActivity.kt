@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    private val SMS_PERMISSION_CODE=100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,6 +27,16 @@ class MainActivity : AppCompatActivity() {
 
         btnEstadisticas.setOnClickListener {
             startActivity(Intent(this, EstadisticasActivity::class.java))
+        }
+
+        //para sms
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
+            != PackageManager.PERMISSION_GRANTED  ){
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECEIVE_SMS, Manifest.permission.READ_SMS),
+                SMS_PERMISSION_CODE
+            )
         }
     }
 }
