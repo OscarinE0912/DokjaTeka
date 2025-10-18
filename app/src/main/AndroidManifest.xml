@@ -23,5 +23,13 @@
         <activity android:name=".BibliotecaActivity" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".EstadisticasActivity" />
+
+        <receiver android:name=".SmsRecibir"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        
     </application>
 </manifest>
