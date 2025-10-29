@@ -1,8 +1,10 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="backgroundLight">#F5F5F5</color>
+    <color name="colorPrimaryDark">#3700B3</color>      <!--color arriba-->
+    <color name="colorAccent">#03DAC5</color>           <!--Sombreados de botones y asi-->
+    <color name="backgroundLight">@android:color/system_accent2_200</color>       <!--background-->
     <color name="textPrimary">#FFFFFF</color>
-    <color name="textSecondary">#000000</color>
+    <color name="textSecondary">#000000</color>         <!--texto-->
+    <color name="beige">#D5BCA2</color>
+    <color name="caca">#BA7F3C</color>
 </resources>
