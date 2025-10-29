@@ -41,7 +41,12 @@ class BibliotecaActivity : AppCompatActivity() {
                 id = cursor.getInt(0),
                 titulo = cursor.getString(1),
                 autor = cursor.getString(2),
+<<<<<<< HEAD
                 ruta = cursor.getString(3)
+=======
+                ruta = cursor.getString(3),
+                portadaResId = cursor.getString(4)
+>>>>>>> 11ca62c (Primer commit del proyecto)
             )
             listaLibros.add(libro)
         }

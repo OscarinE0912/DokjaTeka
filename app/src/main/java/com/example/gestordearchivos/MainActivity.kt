@@ -4,6 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
+=======
+import androidx.core.content.ContextCompat
+import androidx.core.app.ActivityCompat
+import android.Manifest
+import android.content.pm.PackageManager
+>>>>>>> 11ca62c (Primer commit del proyecto)
 
 class MainActivity : AppCompatActivity() {
 

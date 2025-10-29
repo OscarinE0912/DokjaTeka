@@ -8,7 +8,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         app:srcCompat="@mipmap/logo" />
+=======
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+>>>>>>> 11ca62c (Primer commit del proyecto)
 
     <TextView
         android:layout_width="match_parent"

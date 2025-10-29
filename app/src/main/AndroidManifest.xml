@@ -5,8 +5,13 @@
 
     <application
         android:allowBackup="true"
+<<<<<<< HEAD
         android:label="Gestor de Archivos"
         android:icon="@mipmap/ic_launcher"
+=======
+        android:label="DokjaTeka"
+        android:icon="@mipmap/ic_launcher_foreground"
+>>>>>>> 11ca62c (Primer commit del proyecto)
         android:theme="@style/Theme.GestorDeArchivos"
         android:supportsRtl="true">
 

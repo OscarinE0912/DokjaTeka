@@ -36,6 +36,11 @@ android {
 }
 
 dependencies {
+<<<<<<< HEAD
+=======
+    implementation("androidx.core:core-ktx:1.13.1")
+
+>>>>>>> 11ca62c (Primer commit del proyecto)
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
     implementation("androidx.appcompat:appcompat:1.6.1")

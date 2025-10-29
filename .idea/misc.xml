@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project version="4">
   <component name="DeviceStreaming">
     <option name="deviceSelectionList">
@@ -856,6 +857,10 @@
       </list>
     </option>
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+>>>>>>> 11ca62c (Primer commit del proyecto)
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
