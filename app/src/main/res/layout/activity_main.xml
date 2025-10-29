@@ -1,28 +1,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include layout="@layout/header_layout"/>
 
-    <Button
-        android:id="@+id/btnBiblioteca"
-        android:text="Ver Biblioteca"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="📚"
+                android:textSize="40dp"
+               android:gravity="center"/>
+            <Button
+                android:id="@+id/btnBiblioteca"
+                android:text="Ver Biblioteca"
+                android:textSize="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="📤"
+                android:textSize="40dp"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/btnSubir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Subir Libro"
+                android:textSize="18dp"/>
+        </LinearLayout>
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="📊"
+            android:textSize="40dp"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/btnEstadisticas"
+            android:text="Ver Estadísticas"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnSubir"
-        android:text="Subir Libro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/btnEstadisticas"
-        android:text="Ver Estadísticas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+    </LinearLayout>
 </LinearLayout>
