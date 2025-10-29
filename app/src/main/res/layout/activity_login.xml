@@ -3,7 +3,7 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <include layout="@layout/header_layout"/>
     <EditText
         android:id="@+id/etCorreo"
         android:hint="Correo"
@@ -23,12 +23,14 @@
         android:text="Iniciar sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp" 
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/btnIrRegistro"
         android:text="Registrarse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:textSize="18dp"/>
 </LinearLayout>
