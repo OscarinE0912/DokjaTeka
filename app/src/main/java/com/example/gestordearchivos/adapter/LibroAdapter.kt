@@ -1,36 +1,30 @@
-package com.example.gestordearchivos
+package com.example.gestordearchivos.adapter
 
-<<<<<<< HEAD
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.gestordearchivos.model.Libro
-=======
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gestordearchivos.R
 import com.example.gestordearchivos.model.Libro
+import com.bumptech.glide.Glide
 import java.io.File
->>>>>>> 11ca62c (Primer commit del proyecto)
 
 class LibroAdapter(
-    private val libros: List<Libro>,
+    private val listaLibros: List<Libro>,
     private val onClick: (Libro) -> Unit
 ) : RecyclerView.Adapter<LibroAdapter.LibroViewHolder>() {
 
-    class LibroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvTitulo: TextView = view.findViewById(R.id.tvTitulo)
-        val tvAutor: TextView = view.findViewById(R.id.tvAutor)
-<<<<<<< HEAD
-=======
-        val imgPortada: ImageView = view.findViewById(R.id.imgPortada)
->>>>>>> 11ca62c (Primer commit del proyecto)
+    inner class LibroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imagePortada: ImageView = itemView.findViewById(R.id.imageViewPortada)
+        val textTitulo: TextView = itemView.findViewById(R.id.textViewTitulo)
+        val textAutor: TextView = itemView.findViewById(R.id.textViewAutor)
+        val textGenero: TextView = itemView.findViewById(R.id.textViewGenero)
+        val textSinopsis: TextView = itemView.findViewById(R.id.textViewSinopsis)
+        val progressBar: ProgressBar = itemView.findViewById(R.id.progresoLibro)
+        val textPorcentaje: TextView = itemView.findViewById(R.id.textViewPorcentaje)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibroViewHolder {
@@ -40,26 +34,29 @@ class LibroAdapter(
     }
 
     override fun onBindViewHolder(holder: LibroViewHolder, position: Int) {
-        val libro = libros[position]
-        holder.tvTitulo.text = libro.titulo
-        holder.tvAutor.text = libro.autor
-<<<<<<< HEAD
-=======
+        val libro = listaLibros[position]
+        holder.textTitulo.text = libro.titulo
+        holder.textAutor.text = libro.autor
+        holder.textGenero.text = libro.genero
+        holder.textSinopsis.text = libro.sinopsis
+        holder.progressBar.progress = libro.progreso
+        holder.textPorcentaje.text = "Avance: ${libro.progreso}%"
 
-        if (!libro.portadaResId.isNullOrEmpty()) {
-            val imgFile = File(libro.portadaResId)
-            if (imgFile.exists()) {
-                holder.imgPortada.setImageURI(Uri.fromFile(imgFile))
-            } else {
-                holder.imgPortada.setImageResource(R.mipmap.placeholder_libro_foreground)
-            }
+        // ✅ Cargar portada con Glide (archivo local o URL)
+        val portada = libro.rutaPortada
+        if (!portada.isNullOrEmpty()) {
+            val file = File(portada)
+            Glide.with(holder.itemView.context)
+                .load(if (file.exists()) file else portada)
+                .placeholder(R.mipmap.placeholder_libro_foreground)
+                .error(R.mipmap.placeholder_libro_foreground)
+                .into(holder.imagePortada)
         } else {
-            holder.imgPortada.setImageResource(R.mipmap.placeholder_libro_foreground)
+            holder.imagePortada.setImageResource(R.mipmap.placeholder_libro_foreground)
         }
 
->>>>>>> 11ca62c (Primer commit del proyecto)
         holder.itemView.setOnClickListener { onClick(libro) }
     }
 
-    override fun getItemCount(): Int = libros.size
+    override fun getItemCount(): Int = listaLibros.size
 }

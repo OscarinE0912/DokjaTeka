@@ -1,9 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
+    android:background="@color/backgroundLight"
     android:layout_height="match_parent">
+
     <include layout="@layout/header_layout"/>
+
     <EditText
         android:id="@+id/etCorreo"
         android:hint="Correo"
@@ -23,8 +28,8 @@
         android:text="Iniciar sesión"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" 
-        android:textSize="18dp"/>
+        android:layout_marginTop="12dp"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/btnIrRegistro"
@@ -32,5 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textSize="18dp"/>
+        android:textSize="18dp" />
+
 </LinearLayout>

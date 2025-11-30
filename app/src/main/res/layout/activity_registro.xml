@@ -1,4 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
@@ -9,16 +11,20 @@
         android:hint="Correo"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="?android:attr/editTextBackground"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etContraseña"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="?android:attr/editTextBackground"
+        android:layout_marginBottom="12dp" />
 
-        <DatePicker
+    <DatePicker
         android:id="@+id/dpFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,4 +37,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp" />
+
 </LinearLayout>

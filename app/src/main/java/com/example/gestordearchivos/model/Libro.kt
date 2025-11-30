@@ -1,13 +1,15 @@
 package com.example.gestordearchivos.model
 
+import java.io.Serializable
+
 data class Libro(
-    val id: Int,
+    val id: Int = 0,
     val titulo: String,
     val autor: String,
-<<<<<<< HEAD
-    val ruta: String
-=======
-    val ruta: String,
-    val portadaResId: String?
->>>>>>> 11ca62c (Primer commit del proyecto)
-)
+    val genero: String,
+    val sinopsis: String,
+    val rutaPdf: String,
+    val rutaPortada: String,
+    val soloAdultos: Boolean = false,
+    val progreso: Int = 0
+) : Serializable

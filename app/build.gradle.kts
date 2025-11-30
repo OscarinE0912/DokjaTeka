@@ -36,11 +36,8 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
-=======
     implementation("androidx.core:core-ktx:1.13.1")
 
->>>>>>> 11ca62c (Primer commit del proyecto)
     implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -48,6 +45,9 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
 
     testImplementation("junit:junit:4.13.2")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

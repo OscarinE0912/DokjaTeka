@@ -1,18 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gestordearchivos">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
-<<<<<<< HEAD
-        android:label="Gestor de Archivos"
-        android:icon="@mipmap/ic_launcher"
-=======
         android:label="DokjaTeka"
-        android:icon="@mipmap/ic_launcher_foreground"
->>>>>>> 11ca62c (Primer commit del proyecto)
-        android:theme="@style/Theme.GestorDeArchivos"
+        android:icon="@mipmap/logo"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
+        android:theme="@style/Theme.Dokjateka"
         android:supportsRtl="true">
 
         <activity android:name=".LoginActivity" android:exported="true">
@@ -29,12 +27,27 @@
         <activity android:name=".RegistroActivity" />
         <activity android:name=".EstadisticasActivity" />
 
-        <receiver android:name=".SmsRecibir"
-            android:exported="true">
+        <activity
+            android:name=".DetalleLibroActivity"
+            android:label="Detalles del Libro" />
+
+        <receiver
+            android:name=".SmsRecibir"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 </manifest>

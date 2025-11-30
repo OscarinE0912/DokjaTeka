@@ -1,11 +1,13 @@
 package com.example.gestordearchivos
 
 import android.content.Intent
-import android.database.Cursor
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gestordearchivos.adapter.LibroAdapter
 import com.example.gestordearchivos.db.LibroDbHelper
 import com.example.gestordearchivos.model.Libro
 
@@ -13,44 +15,60 @@ class BibliotecaActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: LibroAdapter
-    private val listaLibros = mutableListOf<Libro>()
+    private lateinit var dbHelper: LibroDbHelper
+    private lateinit var textViewEmpty: TextView
+
+    private var listaLibros: MutableList<Libro> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biblioteca)
 
-        recyclerView = findViewById(R.id.recyclerLibros)
-        adapter = LibroAdapter(listaLibros) { libro ->
-            val intent = Intent(this, VisorPdfActivity::class.java)
-            intent.putExtra("ruta", libro.ruta)
-            startActivity(intent)
-        }
+        dbHelper = LibroDbHelper(this)
 
+        recyclerView = findViewById(R.id.recyclerViewLibros)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+
+        textViewEmpty = findViewById(R.id.textViewEmpty)
 
         cargarLibros()
     }
 
+    override fun onResume() {
+        super.onResume()
+        cargarLibros()
+    }
+
+    private fun obtenerEdadUsuario(): Int {
+        val prefs = getSharedPreferences("usuario", MODE_PRIVATE)
+        return prefs.getInt("edad", 0)
+    }
+
     private fun cargarLibros() {
-        listaLibros.clear()
-        val db = LibroDbHelper(this).readableDatabase
-        val cursor: Cursor = db.rawQuery("SELECT * FROM libros", null)
-        while (cursor.moveToNext()) {
-            val libro = Libro(
-                id = cursor.getInt(0),
-                titulo = cursor.getString(1),
-                autor = cursor.getString(2),
-<<<<<<< HEAD
-                ruta = cursor.getString(3)
-=======
-                ruta = cursor.getString(3),
-                portadaResId = cursor.getString(4)
->>>>>>> 11ca62c (Primer commit del proyecto)
-            )
-            listaLibros.add(libro)
+        val edadUsuario = obtenerEdadUsuario()
+        val todos = dbHelper.obtenerLibros()
+
+        listaLibros = if (edadUsuario < 18) {
+            todos.filter { !it.soloAdultos }.toMutableList()
+        } else {
+            todos.toMutableList()
         }
-        cursor.close()
-        adapter.notifyDataSetChanged()
+
+        if (listaLibros.isEmpty()) {
+            // ✅ Mostrar mensaje vacío
+            textViewEmpty.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            // ✅ Mostrar lista
+            textViewEmpty.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+
+            adapter = LibroAdapter(listaLibros) { libro ->
+                val intent = Intent(this, DetalleLibroActivity::class.java)
+                intent.putExtra("LIBRO_SELECCIONADO", libro)
+                startActivity(intent)
+            }
+            recyclerView.adapter = adapter
+        }
     }
 }

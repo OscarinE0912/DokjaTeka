@@ -6,18 +6,31 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gestordearchivos.db.LibroDbHelper
 
 class EstadisticasActivity : AppCompatActivity() {
+
+    private lateinit var textViewEstadisticas: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_estadisticas)
 
-        val tvTotalLibros = findViewById<TextView>(R.id.tvTotalLibros)
+        textViewEstadisticas = findViewById(R.id.textViewEstadisticas)
 
-        val db = LibroDbHelper(this).readableDatabase
-        val cursor = db.rawQuery("SELECT COUNT(*) FROM libros", null)
-        if (cursor.moveToFirst()) {
-            val total = cursor.getInt(0)
-            tvTotalLibros.text = "Total de libros: $total"
+        val dbHelper = LibroDbHelper(this)
+        val listaLibros = dbHelper.obtenerLibros()
+
+        val totalLibros = listaLibros.size
+
+        val conteoPorGenero = listaLibros.groupingBy { it.genero }.eachCount()
+
+        val builder = StringBuilder()
+        builder.append("📚 Total de libros en tu biblioteca: $totalLibros\n\n")
+
+        conteoPorGenero.forEach { (genero, cantidad) ->
+            if (cantidad > 0) {
+                builder.append("• $genero: $cantidad\n")
+            }
         }
-        cursor.close()
+
+        textViewEstadisticas.text = builder.toString().trim()
     }
 }

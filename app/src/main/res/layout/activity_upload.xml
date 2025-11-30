@@ -1,89 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/header_layout"/>
-    <EditText
-        android:id="@+id/etTitulo"
-        android:hint="Título"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/etAutor"
-        android:hint="Autor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnSeleccionar"
-        android:text="Seleccionar PDF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" />
-
-    <Button
-        android:id="@+id/btnSubir"
-        android:text="Guardar libro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp" />
-</LinearLayout>
-=======
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context=".UploadActivity">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Título del libro"
+            android:inputType="textCapWords"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/editTextAutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Autor"
+            android:inputType="textCapWords"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Género:"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/editTextSinopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="top"
+            android:hint="Sinopsis / Descripción"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:minHeight="100dp"
+            android:maxLines="6" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAdultos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Libro +18"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/buttonSeleccionarArchivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/backgroundLight"
+            android:text="Seleccionar Archivo PDF" />
+
+        <Button
+            android:id="@+id/buttonSeleccionarPortada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Seleccionar Imagen de Portada" />
 
         <ImageView
-            android:id="@+id/imgPortada"
+            android:id="@+id/imageViewPortadaPreview"
             android:layout_width="120dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
-            android:src="@mipmap/placeholder_libro_foreground"
-            android:layout_marginBottom="12dp" />
+            android:visibility="gone"
+            tools:src="@tools:sample/avatars" />
 
         <Button
-            android:id="@+id/btnSeleccionarImagen"
-            android:text="Seleccionar imagen de portada"
+            android:id="@+id/buttonGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etTitulo"
-            android:hint="Título"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/etAutor"
-            android:hint="Autor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnSeleccionar"
-            android:text="Seleccionar PDF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" />
-
-        <Button
-            android:id="@+id/btnSubir"
-            android:text="Guardar libro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="32dp"
+            android:text="Guardar Libro" />
     </LinearLayout>
 </ScrollView>
->>>>>>> 11ca62c (Primer commit del proyecto)

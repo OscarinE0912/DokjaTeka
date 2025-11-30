@@ -1,27 +1,37 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:layout_marginBottom="50dp"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:background="@color/colorPrimary"
+    android:elevation="4dp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        app:srcCompat="@mipmap/logo" />
-=======
-        app:srcCompat="@mipmap/ic_launcher_foreground" />
->>>>>>> 11ca62c (Primer commit del proyecto)
+        android:id="@+id/header_logo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@mipmap/logo_foreground"
+        android:contentDescription="Logo"
+        android:layout_marginEnd="12dp"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/header_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
+        android:layout_weight="1"
         android:text="DOKJATEKA"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@android:color/system_accent2_700"
-        android:textSize="45dp"
-        android:textStyle="bold" />
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/textPrimary"
+        android:fontFamily="serif"
+        android:letterSpacing="0.08"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical" />
 </LinearLayout>
