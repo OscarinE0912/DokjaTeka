@@ -12,7 +12,7 @@ Aplicación móvil desarrollada en Android que permite gestionar y visualizar co
 ## Tecnologías
 - Kotlin
 - Android Studio
-- SQLite (o Room si aplica, pero dijiste que no Jetpack, así que probablemente SQLite)
+- SQLite
 
 ## Instalación
 1. Clonar repositorio
