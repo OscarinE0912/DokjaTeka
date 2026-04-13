@@ -14,9 +14,6 @@ Aplicación móvil desarrollada en Android que permite gestionar y visualizar co
 - Android Studio
 - SQLite (o Room si aplica, pero dijiste que no Jetpack, así que probablemente SQLite)
 
-## Capturas
-(Aquí van screenshots de la app)
-
 ## Instalación
 1. Clonar repositorio
 2. Abrir en Android Studio
